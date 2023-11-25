@@ -1,5 +1,6 @@
 package com.example.userserviceapplication.Models;
 
+import com.example.userserviceapplication.dtos.UserDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import lombok.Getter;
@@ -15,4 +16,12 @@ public class User extends BaseModel{
     private String Password;
     @ManyToMany
     private Set<Role> roles = new HashSet<>();
+
+    public static UserDto from(User user) {
+        UserDto userDto = new UserDto();
+        userDto.setEmail(user.getEmail());
+        userDto.setRoles(user.getRoles());
+
+        return userDto;
+    }
 }
