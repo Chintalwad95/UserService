@@ -5,6 +5,7 @@ import com.example.userserviceapplication.Models.User;
 import com.example.userserviceapplication.Repositories.RoleRepository;
 import com.example.userserviceapplication.Repositories.UserRepository;
 import com.example.userserviceapplication.dtos.UserDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +14,13 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+
 public class UserService {
+    public UserService() {
+    }
+    UserRepository userRepository;
 
-    private UserRepository userRepository;
-
-    private RoleRepository roleRepository;
+    RoleRepository roleRepository;
 
     public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;

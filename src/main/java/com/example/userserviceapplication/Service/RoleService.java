@@ -2,12 +2,15 @@ package com.example.userserviceapplication.Service;
 
 import com.example.userserviceapplication.Models.Role;
 import com.example.userserviceapplication.Repositories.RoleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RoleService {
-    private RoleRepository roleRepository;
 
+public class RoleService {
+    RoleRepository roleRepository;
+    public RoleService() {
+    }
     public RoleService(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
